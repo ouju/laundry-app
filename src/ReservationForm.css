@@ -1,0 +1,59 @@
+/* ReservationForm.css */
+
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style for table headers */
+th {
+  background-color: #EBF9F7;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Style for table cells */
+td {
+  border: 1px solid #ddd;
+}
+
+/* Style for clickable buttons */
+button {
+  cursor: pointer;
+  width: 100%; /* Make buttons fill the entire cell width */
+  height: 100%; /* Make buttons fill the entire cell height */
+  padding: 10px; /* Add padding for better appearance */
+  border: none;
+  background-color: white;
+  font-family: "Tahoma", sans-serif;
+  font-size: 16px;
+}
+
+/* Hover effect for clickable buttons */
+button:focus, button:hover {
+  background-color: #B1E9E1;
+  cursor: pointer;
+  outline-color: black;
+}
+
+/* Style for selected buttons */
+button.selected {
+  background-color: #3DCAB5;
+}
+
+/* Style for the Reserve button */
+button[type="submit"] {
+  padding: 10px;
+  background-color: #3DCAB5;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-family: "Tahoma", sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color: #008C77;
+}
