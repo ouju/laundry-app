@@ -1,7 +1,7 @@
 // ReservationForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ReservationForm.css';
+import '../styles/ReservationForm.css';
 
 function ReservationForm() {
   const washingMachines = Array.from({ length: 8 }, (_, index) => index + 1);

@@ -1,7 +1,7 @@
 // Home.js
-import './Home.css';
+import '../styles/Home.css';
 import React from 'react';
-import ReservationForm from './ReservationForm';
+import ReservationForm from '../components/ReservationForm';
 
 function Home() {
 

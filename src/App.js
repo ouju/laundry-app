@@ -1,9 +1,9 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import MyBookings from './MyBookings';
-import Header from './Header';
+import Home from './pages/Home';
+import MyBookings from './pages/MyBookings';
+import Header from './components/Header';
 
 function App() {
   return (
