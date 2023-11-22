@@ -9,29 +9,22 @@ function MyBookings() {
   const userId = "1010"; // Current user's ID
   const userData = bookingsData[userId];
 
-  if (!userData) {
-    return (
-      <div>
-        <h2>My Bookings</h2>
-        <p>No bookings found for user ID: {userId}</p>
-      </div>
-    );
-  }
-
-  const { booked } = userData;
-
   return (
     <div>
       <h2>My Bookings</h2>
-      {selectedSlot && <p>Time Slot successfully reserved: {selectedSlot}</p>}
-      <h3>Upcoming time slots</h3>
-      <ul>
-        {booked.map((booking, index) => (
-          <li key={index}>
-            {`Date: ${booking.date}, Time: ${booking.time}, Machine: ${booking.machine}`}
-          </li>
-        ))}
-      </ul>
+      {selectedSlot && <p>! New booking made: {selectedSlot}</p>}
+      <h3>Upcoming bookings</h3>
+      {!userData ? (
+        <p>No upcoming bookings found.</p>
+      ) : (
+        <ul>
+          {userData.booked.map((booking, index) => (
+            <li key={index}>
+              {`Date: ${booking.date}, Time: ${booking.time}, Machine: ${booking.machine}`}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

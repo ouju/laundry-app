@@ -58,6 +58,12 @@ button.selected {
   background-color: #3DCAB5;
 }
 
+/* Style for disabled buttons */
+button:disabled {
+  background-color: #D3D3D3;
+  cursor: not-allowed;
+}
+
 /* Style for the Reserve button */
 .reserveButton {
   position: fixed;
@@ -73,7 +79,7 @@ button.selected {
   left: 0px;
 }
 
-/* Hover and focus effect for Reserve button */
+/* Hover effect for Reserve button */
 .reserveButton:hover {
   background-color: #008C77;
 }

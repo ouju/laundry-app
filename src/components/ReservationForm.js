@@ -9,8 +9,10 @@ function ReservationForm() {
   const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const [selectedSlot, setSelectedSlot] = useState(null);
   const navigate = useNavigate();
-
   const today = new Date();
+
+  // Define some disabled time slots to show how already booked slots would look like
+  const disabled = [[1, '10am', '23.11.2023'], [2, '9am', '22.11.2023']];
   
   // Calculate the weekdays and dates for the next 7 days
   const upcomingDays = Array.from({ length: 7 }, (_, index) => {
@@ -19,15 +21,21 @@ function ReservationForm() {
     return nextDay;
   });
 
+  // Helper function to check if a slot is disabled
+  const isSlotDisabled = (machine, time, date) => {
+    return disabled.some(([disabledMachine, disabledTimeSlot, disabledDate]) =>
+      machine === disabledMachine && time === disabledTimeSlot && date.toLocaleDateString('fi-FI') === disabledDate
+    );
+  };
+
   const handleTimeClick = (slot) => {
     setSelectedSlot(slot);
   };
 
+  // On submit, redirect to the My Bookings page and pass the selected time slot as a parameter
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Reserved ${selectedSlot}`);
-
-    // Redirect to the My Bookings page and pass the selected time slot as a parameter
     navigate('/my-bookings', { state: { selectedSlot } });
   };
 
@@ -53,6 +61,7 @@ function ReservationForm() {
                         type="button"
                         onClick={() => handleTimeClick(`Machine ${machine} at ${time} on ${weekdays[day.getDay()]} ${day.toLocaleDateString('fi-FI')}`)}
                         className={selectedSlot === `Machine ${machine} at ${time}` ? 'selected' : ''}
+                        disabled={isSlotDisabled(machine, time, day)}
                       >
                         {time}
                       </button>
