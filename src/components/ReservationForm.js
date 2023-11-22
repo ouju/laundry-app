@@ -32,10 +32,10 @@ function ReservationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="reservation-form">
       {upcomingDays.map((day, index) => (
         <div key={index}>
-          <h2>{weekdays[day.getDay()]} {day.toLocaleDateString('fi-FI')}</h2>
+          <h2 data-testid="weekday">{weekdays[day.getDay()]} {day.toLocaleDateString('fi-FI')}</h2>
           <table key={index}>
             <thead>
               <tr>
@@ -48,7 +48,7 @@ function ReservationForm() {
               {timeSlots.map((time) => (
                 <tr key={time}>
                   {washingMachines.map((machine) => (
-                    <td key={machine}>
+                    <td key={machine} data-testid="timeSlot">
                       <button
                         type="button"
                         onClick={() => handleTimeClick(`Machine ${machine} at ${time} on ${weekdays[day.getDay()]} ${day.toLocaleDateString('fi-FI')}`)}
